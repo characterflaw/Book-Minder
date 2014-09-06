@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Book Minder</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="author_add">Add</string>
+    <string name="author_edit">Edit</string>
+    <string name="author_books">Books</string>
+
+    <string name="header_title_authors">Authors</string> 
+    <string name="header_title_books">Books</string> 
+    
+    <string name="menu_edit_new">New</string> 
+    <string name="menu_author_modify">Modify Author</string> 
+    <string name="menu_author_delete">Remove Author</string> 
+    
+    <string name="tv_author_first_name">First Name: </string>    
+    <string name="hint_author_first_name">enter first name&#8230;</string>    
+    <string name="tv_author_last_name">Last Name: </string>    
+    <string name="hint_author_last_name">enter last name&#8230;</string>    
+    
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_done">Done</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+    
+    
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginBottom="5dp"
+	    android:orientation="horizontal" >
+	    
+		<TextView
+	        android:id="@+id/tvAuthorFirstName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center" 
+	        android:layout_marginTop="@dimen/dime"
+	        android:layout_marginLeft="@dimen/dime"
+	        android:layout_marginRight="@dimen/dime"
+            android:textSize="@dimen/dlg_caption_size"
+	        android:text="@string/tv_author_first_name" />
+		    
+		<EditText
+	        android:id="@+id/etAuthorFirstName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" 
+	        android:layout_gravity="center" 
+            android:textSize="@dimen/dlg_field_size"
+	        android:hint="@string/hint_author_first_name" />
+		        
+    </LinearLayout>
+
+    <LinearLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dp"
+	    android:layout_marginBottom="10dp"
+	    android:orientation="horizontal" >
+	    
+		<TextView
+	        android:id="@+id/tvAuthorLastName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center" 
+	        android:layout_marginTop="@dimen/dime"
+	        android:layout_marginLeft="@dimen/dime"
+	        android:layout_marginRight="@dimen/dime"
+            android:textSize="@dimen/dlg_caption_size"
+	        android:text="@string/tv_author_last_name" />
+		    
+		<EditText
+	        android:id="@+id/etAuthorLastName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" 
+	        android:layout_gravity="center" 
+            android:textSize="@dimen/dlg_field_size"
+	        android:hint="@string/hint_author_last_name" />
+		        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/authorButtonBar"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/quarter"
+        android:layout_marginBottom="@dimen/dime"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnDialogCancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/dlg_button_size"
+            android:text="@string/btn_cancel" />
+
+        <Button
+            android:id="@+id/btnDialogAdd"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/dlg_button_size"
+            android:text="@string/btn_add" />
+    </LinearLayout>
+    
+</LinearLayout>

@@ -8,6 +8,8 @@ public class ModelBookView {
 	private String mAuthorLast;
 	private String mAuthorSubFirst;
 	private String mAuthorSubLast;
+	private Boolean mOwnIt;
+	private Boolean mReadIt;
 
 	public ModelBookView() {
 		super();
@@ -69,6 +71,22 @@ public class ModelBookView {
 
 	public void setAuthorSubLast(String authorSubLast) {
 		this.mAuthorSubLast = authorSubLast;
+	}
+
+	public Boolean getOwnIt() {
+		return mOwnIt;
+	}
+
+	public void setOwnIt(Boolean ownIt) {
+		this.mOwnIt = ownIt;
+	}
+
+	public Boolean getReadIt() {
+		return mReadIt;
+	}
+
+	public void setReadIt(Boolean readIt) {
+		this.mReadIt = readIt;
 	}
 	
 }

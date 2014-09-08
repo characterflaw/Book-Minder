@@ -9,7 +9,7 @@
     <string name="author_edit">Edit</string>
     <string name="author_books">Books</string>
 
-    <string name="header_title_authors">Authors</string> 
+    <string name="header_title_authors" >Authors</string> 
     <string name="header_title_books">Books</string> 
     
     <string name="menu_edit_new">New</string> 
@@ -26,6 +26,14 @@
     <string name="btn_add">Add</string>
     <string name="btn_yes">Yes</string>
     <string name="btn_no">No</string>
+    
+    <string name="btn_authors" >Authors</string> 
+    <string name="btn_books" >Books</string> 
+    
+    
+    <string name="delete_author_confirm_title">Delete Confirm</string>
+	<string name="delete_author_confirm_message">You have chosen to delete this author.  There ~~ associated with this Author.  If you delete the author the books will be deleted too.\n\nAre you sure you want to delete this Author and the associated books? </string>
+    
     
     
 </resources>

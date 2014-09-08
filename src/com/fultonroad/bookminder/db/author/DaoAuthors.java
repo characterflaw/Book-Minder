@@ -25,13 +25,6 @@ public class DaoAuthors extends Dao<ModelAuthor> {
 	public static final String kQUALIFIED_LAST_NAME = kTABLE_NAME + "." + kCOLUMN_LAST_NAME;
 
 	
-	protected DBHelper mDBHelper;
-
-	public DaoAuthors(DBHelper hlpr) {
-		super();
-		mDBHelper = hlpr;
-	}
-
 	public DaoAuthors(SQLiteDatabase db) {
 		super();
 		mDatabase = db;
@@ -41,8 +34,8 @@ public class DaoAuthors extends Dao<ModelAuthor> {
 		
 		return "CREATE TABLE " + DaoAuthors.kTABLE_NAME + " (" + DaoAuthors.kCOLUMN_ID
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-			+ DaoAuthors.kCOLUMN_FIRST_NAME + " TEXT NOT NULL, "
-			+ DaoAuthors.kCOLUMN_LAST_NAME + " TEXT NOT NULL)";
+			+ kCOLUMN_FIRST_NAME + " TEXT NOT NULL, "
+			+ kCOLUMN_LAST_NAME + " TEXT NOT NULL)";
 
 	}
 	
@@ -68,22 +61,11 @@ public class DaoAuthors extends Dao<ModelAuthor> {
 		}
 		
 		if (retval) {
-			mDatabase = mDBHelper.getWritableDatabase();
-	
-			int result = mDatabase.delete(kTABLE_NAME, kCOLUMN_ID + " = " + entity.getID(), null);
+			int result = mDatabase.delete(kTABLE_NAME, kCOLUMN_ID + "=" + Integer.toString(entity.getID()), null);
 
 			if (result == 0)
 				retval = false;
 			
-			try {
-				mDatabase.close();
-			} catch (CursorIndexOutOfBoundsException ex1) {
-				Log.v("DB1", ex1.toString());
-				retval = false;
-			} catch (Exception ex2) {
-				Log.v("DB2", ex2.toString());
-				retval = false;
-			}
 		} 
 		
 		return retval;
@@ -190,4 +172,28 @@ public class DaoAuthors extends Dao<ModelAuthor> {
 		return retval;
 	}
 
+	
+	
+	
+	
+	
+	/*
+	 * 
+	 * 		C U R S O R S
+	 * 
+	 */
+	public Cursor getAuthorCursor() {
+		
+		String selection = "? <> \"None\"";
+		String[] selectionArgs = new String[] { kCOLUMN_LAST_NAME }; 
+		String orderby = kCOLUMN_LAST_NAME + " ASC";
+		
+		return mDatabase.query(kTABLE_NAME, getAllColumns(), selection, selectionArgs, null, null, orderby);
+
+	}
+
+	
+	
+	
+	
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
     
 	<LinearLayout
         android:id="@+id/button_bar"        
@@ -27,21 +27,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/btn_authors" />
-        	    
-        <Button
-            android:id="@+id/btn_books"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/btn_books" />
-	</LinearLayout>
     
-    <ListView 
-        android:id="@+id/list_view_books"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:layout_above="@id/button_bar"
-        android:layout_alignParentTop="true" />
+	</LinearLayout>
+	    
+	<ListView
+		android:id="@+id/list_view_book_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+        android:layout_above="@id/button_bar" />
 
 </RelativeLayout>

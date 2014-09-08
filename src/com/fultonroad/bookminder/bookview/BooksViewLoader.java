@@ -1,11 +1,14 @@
-package com.fultonroad.bookminder.book;
+package com.fultonroad.bookminder.bookview;
 
 import java.util.ArrayList;
 import java.util.List;
 //import java.util.Locale;
 
 
+
+
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.content.AsyncTaskLoader;
 
 import com.fultonroad.bookminder.db.DBHelper;
@@ -14,26 +17,15 @@ import com.fultonroad.bookminder.db.bookview.DaoBooksView;
 import com.fultonroad.bookminder.db.bookview.ModelBookView;
 
 
-public class BookLoader extends AsyncTaskLoader<List<ModelBookView>> {
+public class BooksViewLoader extends AsyncTaskLoader<List<ModelBookView>> {
 
 	Context mContext = null;
-//	private List<ModelBookView> mListBooks = null; 
-//	Locale mLocale = Locale.getDefault();
 	
-	int mAuthorId = -1;
-	
-	
-	
-	public static final String kBOOK_LOADER_RELOAD = "LocalFileLoader.RELOAD";
+	public static final String kBOOK_VIEW_LOADER_RELOAD = "BookViewLoader.RELOAD";
 	List<ModelBookView> mOldData = null;
 
-	
-	
-	
-	
-	public BookLoader(Context context, int authorID) {
+	public BooksViewLoader(Context context) {
 		super(context);
-		mAuthorId = authorID;
 		mContext = context; 
 	}
 
@@ -51,16 +43,16 @@ public class BookLoader extends AsyncTaskLoader<List<ModelBookView>> {
 	public List<ModelBookView> loadInBackground() {
 		
 		DBHelper dbHelper = DBHelper.getInstance(mContext);
-		dbHelper.getReadableDatabase();
-		DaoBooksView bvds = new DaoBooksView(dbHelper);
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		DaoBooksView dao = new DaoBooksView(db);
 		
+		String orderBy = DaoBooksView.kCOLUMN_TITLE + " ASC";
 		List<ModelBookView> list = null;
+//		list = dao.read(null, null, null, null, orderBy);
+		list = dao.read();
 		
-		if (mAuthorId == 0) {
-			list = bvds.read();
-		} else {
-			list = bvds.read(DaoAuthors.kCOLUMN_ID + "=?", new String[] { Integer.toString(mAuthorId) }, null, null, null); 
-		}
+		if (db != null)
+			db.close();
 		
 		return list;
 	}

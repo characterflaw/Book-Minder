@@ -30,18 +30,13 @@
             android:layout_weight="1"
             android:text="@string/author_books" />
         	    
-    
-    
-    
-    
 	</LinearLayout>
 	    
-    
-    
     <ListView 
-        android:id="@+id/listview_authors"
+        android:id="@+id/list_view_authors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
+        android:layout_alignParentTop="true"
         android:layout_above="@id/button_bar" />
 
 </RelativeLayout>

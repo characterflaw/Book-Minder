@@ -1,9 +1,6 @@
 package com.fultonroad.bookminder;
 
-import com.fultonroad.bookminder.author.AuthorFragment;
-import com.fultonroad.bookminder.db.DBHelper;
-import com.fultonroad.bookminder.db.author.DaoAuthors;
-import com.fultonroad.bookminder.db.bookview.DaoBooksView;
+import com.fultonroad.bookminder.bookview.BooksViewFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -21,7 +18,7 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		showAuthorFragment();
+		showBookViewFragment();
 		
 	}
 
@@ -45,31 +42,34 @@ public class MainActivity extends FragmentActivity {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	private void showAuthorFragment() {
+	private void showBookViewFragment() {
 		FragmentManager fm = getSupportFragmentManager();
-		AuthorFragment frag = (AuthorFragment)fm.findFragmentByTag(Constants.kTAG_FRAGMENT_AUTHOR);
+		BooksViewFragment frag = (BooksViewFragment)fm.findFragmentByTag(Constants.kTAG_FRAGMENT_BOOK_VIEW);
 		FragmentTransaction trans = null;			
 
 		if (frag == null) {
-			frag = new AuthorFragment();
-			trans = fm.beginTransaction();
-			trans.replace(R.id.listContainer, frag, Constants.kTAG_FRAGMENT_AUTHOR);
-			trans.addToBackStack(null);
-			trans.commit();
+			frag = new BooksViewFragment();
 		}
+		trans = fm.beginTransaction();
+		trans.replace(R.id.listContainer, frag, Constants.kTAG_FRAGMENT_BOOK_VIEW);
+		trans.addToBackStack(null);
+		trans.commit();
 			
 	}
-
-
-
+	
+//	private void showAuthorFragment() {
+//		FragmentManager fm = getSupportFragmentManager();
+//		AuthorsFragment frag = (AuthorsFragment)fm.findFragmentByTag(Constants.kTAG_FRAGMENT_AUTHOR);
+//		FragmentTransaction trans = null;			
+//
+//		if (frag == null) {
+//			frag = new AuthorsFragment();
+//		}
+//		trans = fm.beginTransaction();
+//		trans.replace(R.id.listContainer, frag, Constants.kTAG_FRAGMENT_AUTHOR);
+//		trans.addToBackStack(null);
+//		trans.commit();
+//			
+//	}
 	
 }

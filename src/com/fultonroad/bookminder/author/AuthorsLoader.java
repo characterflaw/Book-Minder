@@ -5,7 +5,9 @@ import java.util.List;
 //import java.util.Locale;
 
 
+
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.content.AsyncTaskLoader;
 
 import com.fultonroad.bookminder.db.DBHelper;
@@ -13,7 +15,7 @@ import com.fultonroad.bookminder.db.author.DaoAuthors;
 import com.fultonroad.bookminder.db.author.ModelAuthor;
 
 
-public class AuthorLoader extends AsyncTaskLoader<List<ModelAuthor>> {
+public class AuthorsLoader extends AsyncTaskLoader<List<ModelAuthor>> {
 
 	Context mContext = null;
 //	private List<ModelBookView> mListBooks = null; 
@@ -26,7 +28,7 @@ public class AuthorLoader extends AsyncTaskLoader<List<ModelAuthor>> {
 	
 	
 	
-	public AuthorLoader(Context context) {
+	public AuthorsLoader(Context context) {
 		super(context);
 
 		mContext = context; 
@@ -46,18 +48,19 @@ public class AuthorLoader extends AsyncTaskLoader<List<ModelAuthor>> {
 	@Override
 	public List<ModelAuthor> loadInBackground() {
 
-		List<ModelAuthor> list = null;
-		
 		DBHelper dbHelper = DBHelper.getInstance(mContext);
-//		dbHelper.getReadableDatabase();
-		DaoAuthors dao = new DaoAuthors(dbHelper.getReadableDatabase());
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		DaoAuthors dao = new DaoAuthors(db);
 		
 		String orderBy = DaoAuthors.kCOLUMN_LAST_NAME + ", " + DaoAuthors.kCOLUMN_FIRST_NAME +" ASC";
-
-//		dao.read();
+		List<ModelAuthor> list = null;
 		list = dao.read(null, null, null, null, orderBy);
 		
+		if (db != null)
+			db.close();
+		
 		return list;
+		
 	}
 	
 	@Override

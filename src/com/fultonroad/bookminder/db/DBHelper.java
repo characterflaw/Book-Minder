@@ -17,7 +17,7 @@ import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 	
-	private static final String kDATABASE_NAME	= "bookMinder.db";
+	private static final String kDATABASE_NAME	= "BookMinder.db";
 	private static final int kDATABASE_VERSION = 1;
 
 	private static DBHelper sInstance;

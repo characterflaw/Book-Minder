@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvBookDetailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/nickel"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+        android:text="@string/caption_title" />
+
+    <EditText
+        android:id="@+id/etBookDetailTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/dime"
+		android:layout_marginStart="@dimen/dime"
+		android:layout_marginBottom="@dimen/dime"
+        android:hint="@string/hint_title"        
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvBookDetailAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+        android:text="@string/caption_author" />
+
+    <Spinner
+        android:id="@+id/spBookDetailAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/dime"
+		android:layout_marginStart="@dimen/dime"
+		android:layout_marginBottom="@dimen/dime"
+        android:hint="@string/hint_author"        
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvBookDetailSubAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+        android:text="@string/caption_sub_author" />
+
+    <Spinner
+        android:id="@+id/spBookDetailSubAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/dime"
+		android:layout_marginStart="@dimen/dime"
+		android:layout_marginBottom="@dimen/dime"
+        android:hint="@string/hint_sub_author"        
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/tvBookDetailSeries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+        android:text="@string/caption_series" />
+
+    <Spinner
+        android:id="@+id/spBookDetailSeries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/dime"
+		android:layout_marginStart="@dimen/dime"
+		android:layout_marginBottom="@dimen/dime"
+        android:hint="@string/hint_series"        
+        android:ems="10" />
+    
+    <TextView
+        android:id="@+id/tvBookDetailYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+        android:text="@string/caption_year" />
+
+    <EditText
+        android:id="@+id/etBookDetailYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/dime"
+		android:layout_marginStart="@dimen/dime"
+		android:layout_marginBottom="@dimen/dime"
+        android:hint="@string/hint_year"        
+        android:ems="10" />
+
+    <Switch
+        android:id="@+id/swBookDetailOwnIt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+		android:layout_marginBottom="@dimen/dime"
+		android:textOn="Yes"
+		android:textOff="No"
+		android:text="@string/caption_own_it" />
+    
+    <Switch
+        android:id="@+id/swBookDetailReadIt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/nickel"
+		android:layout_marginStart="@dimen/nickel"
+		android:textOn="Yes"
+		android:textOff="No"
+		android:text="@string/caption_read_it" />
+    
+    
+    <LinearLayout
+        android:id="@+id/authorButtonBar"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/quarter"
+        android:layout_marginBottom="@dimen/dime"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnDialogCancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/dlg_button_size"
+            android:text="@string/btn_cancel" />
+
+        <Button
+            android:id="@+id/btnDialogSave"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/dlg_button_size"
+            android:text="@string/btn_save" />
+    </LinearLayout>
+    
+    
+    
+</LinearLayout>

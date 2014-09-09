@@ -30,7 +30,7 @@ public class DaoSeries extends Dao<ModelSeries> {
 
 	public static String createTableDdl() {
 
-		return "CREATE TABLE " + DaoBooks.kTABLE_NAME + "("
+		return "CREATE TABLE " + kTABLE_NAME + "("
 			+ kCOLUMN_ID  + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 			+ kCOLUMN_AUTHOR	+ " INTEGER NOT NULL, "	
 			+ kCOLUMN_NAME + " TEXT NOT NULL)";
@@ -85,6 +85,38 @@ public class DaoSeries extends Dao<ModelSeries> {
 		return list;
 	}
 
+	
+	public Cursor getSeriesCursor(int key) {
+		
+/*
+ *		O P T I O N   # 1		
+		String selection = "?=?";
+		String[] selectionArgs = new String[] { kCOLUMN_AUTHOR, Integer.toString(15) };
+		String orderby = "name ASC";
+		return mDatabase.query(kTABLE_NAME, getAllColumns(), selection, selectionArgs, null, null, orderby);
+ */
+
+
+/*
+ *		O P T I O N   # 2		
+ */		
+		String selection = "SELECT _id, author, name FROM tblSeries WHERE author=15";
+		String[] selectionArgs = new String[] { kCOLUMN_AUTHOR, "15" };
+		return mDatabase.rawQuery(selection, null);
+		
+		
+		
+/*
+ *		O P T I O N   # 3		
+		String selection = "SELECT _id, author, name FROM tblSeries WHERE author = 15";
+		return mDatabase.rawQuery(selection, null);
+ */
+
+				
+		
+	}
+	
+	
 	@Override
 	public List<ModelSeries> read(String selection, String[] selectionArgs, String groupBy, String having, String orderBy) {
 		// TODO Auto-generated method stub
@@ -92,7 +124,7 @@ public class DaoSeries extends Dao<ModelSeries> {
 	}
 	
 	public String[] getAllColumns() {
-		return new String[] { kCOLUMN_ID, kCOLUMN_NAME, kCOLUMN_AUTHOR };
+		return new String[] { kCOLUMN_ID, kCOLUMN_AUTHOR, kCOLUMN_NAME };
 	}
 	
 	public ModelSeries generateObjectFromCursor(Cursor cursor) {

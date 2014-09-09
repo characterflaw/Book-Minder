@@ -57,7 +57,6 @@ public class AddAuthorFragment extends DialogFragment implements OnClickListener
 		return view;
 	}
 
-
 	@Override
 	public void onClick(View v) {
 		
@@ -65,7 +64,6 @@ public class AddAuthorFragment extends DialogFragment implements OnClickListener
 		mDBHelper.getWritableDatabase();
 
 		if (v.getId() == R.id.btnDialogAdd) {
-			
 			
 			DaoAuthors dsAuthors = new DaoAuthors(mDBHelper.getWritableDatabase());
 			
@@ -87,14 +85,6 @@ public class AddAuthorFragment extends DialogFragment implements OnClickListener
 				}
 				this.dismiss();
 			}
-			
-			
-			//	check to see if this Author exists
-			
-			//	if exists
-			//		pop an alert
-			//	else
-			//		add new author
 			
 		} else if (v.getId() == R.id.btnDialogCancel) {
 			this.dismiss();

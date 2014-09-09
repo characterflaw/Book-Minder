@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.fultonroad.bookminder.Constants;
 import com.fultonroad.bookminder.R;
 import com.fultonroad.bookminder.author.AuthorsFragment;
+import com.fultonroad.bookminder.book.detail.BooksDetail;
 import com.fultonroad.bookminder.db.DBHelper;
 import com.fultonroad.bookminder.db.bookview.DaoBooksView;
 import com.fultonroad.bookminder.db.bookview.ModelBookView;
@@ -127,7 +128,7 @@ public class BooksViewFragment extends Fragment implements OnClickListener, OnIt
 			msg = "Header clicked...";
 		else {
 			Cursor curs = (Cursor)mAdapter.getItem(position-1);
-//			int key = curs.getInt(curs.getColumnIndex(DaoBooksView.kCOLUMN_ID));
+			int key = curs.getInt(curs.getColumnIndex(DaoBooksView.kCOLUMN_ID));
 			String title = curs.getString(curs.getColumnIndex(DaoBooksView.kCOLUMN_TITLE));
 			String fname = curs.getString(curs.getColumnIndex(DaoBooksView.kCOLUMN_AUTHOR_FIRST));
 			String lname = curs.getString(curs.getColumnIndex(DaoBooksView.kCOLUMN_AUTHOR_LAST));
@@ -140,15 +141,15 @@ public class BooksViewFragment extends Fragment implements OnClickListener, OnIt
 			 */
 			
 			
-//			Bundle args = new Bundle();
-//			args.putString("author_name", fullname);
-//			
-//			BooksFragment frag = new BooksFragment(key);
-//			frag.setArguments(args);
-//			FragmentManager mgr = getActivity().getSupportFragmentManager();
-//			FragmentTransaction trans = mgr.beginTransaction();
-//			trans.replace(R.id.listContainer, frag, Constants.kTAG_FRAGMENT_BOOK);
-//			trans.commit();		
+			Bundle args = new Bundle();
+			args.putString("author_name", fullname);
+			
+			BooksDetail frag = new BooksDetail(15);
+			frag.setArguments(args);
+			FragmentManager mgr = getActivity().getSupportFragmentManager();
+			FragmentTransaction trans = mgr.beginTransaction();
+			trans.replace(R.id.listContainer, frag, Constants.kTAG_FRAGMENT_BOOK_DETAIL);
+			trans.commit();		
 			
 		}
 

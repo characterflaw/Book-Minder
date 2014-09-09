@@ -19,7 +19,8 @@ public class DaoAuthors extends Dao<ModelAuthor> {
 	public static final String kCOLUMN_ID = "_id";
 	public static final String kCOLUMN_FIRST_NAME = "firstName";
 	public static final String kCOLUMN_LAST_NAME = "lastName";
-
+	public static final String kCOLUMN_FULL_NAME = "fullName";
+	
 	public static final String kQUALIFIED_ID = kTABLE_NAME + "." + kCOLUMN_ID;
 	public static final String kQUALIFIED_FIRST_NAME = kTABLE_NAME + "." + kCOLUMN_FIRST_NAME;
 	public static final String kQUALIFIED_LAST_NAME = kTABLE_NAME + "." + kCOLUMN_LAST_NAME;
@@ -189,6 +190,21 @@ public class DaoAuthors extends Dao<ModelAuthor> {
 		String orderby = kCOLUMN_LAST_NAME + " ASC";
 		
 		return mDatabase.query(kTABLE_NAME, getAllColumns(), selection, selectionArgs, null, null, orderby);
+
+	}
+
+	public Cursor getAuthorCursorFull() {
+
+		String selection = "SELECT _id, firstName, lastName, firstName || ' ' || lastName AS fullName FROM tblAuthors WHERE lastName <> 'None' ORDER BY lastName ASC";
+		
+		return mDatabase.rawQuery(selection, null);
+	}
+
+	public Cursor getSubAuthorCursorFull() {
+
+		String selection = "SELECT _id, firstName, lastName, firstName || ' ' || lastName AS fullName FROM tblAuthors ORDER BY lastName ASC";
+		
+		return mDatabase.rawQuery(selection, null);
 
 	}
 

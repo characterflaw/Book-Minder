@@ -5,8 +5,8 @@
 
     
 	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
 	    android:layout_alignParentLeft="true"
 	    android:layout_alignParentStart="true"
 	    android:orientation="vertical" >
@@ -40,8 +40,8 @@
 	</LinearLayout> 
 	    
 	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
 	    android:layout_alignParentRight="true"
 	    android:layout_alignParentEnd="true"
 	    android:layout_centerVertical="true"
@@ -49,26 +49,25 @@
 	    android:orientation="horizontal" >
     
 	    <TextView
-	        android:id="@+id/tvBooksRead"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginRight="@dimen/dime"
-	        android:layout_marginEnd="@dimen/dime"
-	        android:layout_marginTop="15dp"
-	        android:layout_marginBottom="15dp"
-	        android:padding="@dimen/nickel"
-	        android:text="Read" />
-	    
-	    <TextView
 	        android:id="@+id/tvBooksOwn"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginRight="@dimen/dime"
 	        android:layout_marginEnd="@dimen/dime"
-	        android:layout_marginTop="15dp"
-	        android:layout_marginBottom="15dp"
+	        android:layout_marginTop="@dimen/nickel"
 	        android:padding="@dimen/nickel"
 	        android:text="Own" />
     
+	    <TextView
+	        android:id="@+id/tvBooksRead"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginRight="@dimen/dime"
+	        android:layout_marginEnd="@dimen/dime"
+	        android:layout_marginTop="@dimen/nickel"
+	        android:layout_marginBottom="@dimen/nickel"
+	        android:padding="@dimen/nickel"
+	        android:text="Read" />
+	    
 	</LinearLayout>
 </RelativeLayout>

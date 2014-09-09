@@ -42,7 +42,7 @@ public class MainActivity extends FragmentActivity {
 	}
 	
 	
-	private void showBookViewFragment() {
+	public void showBookViewFragment() {
 		FragmentManager fm = getSupportFragmentManager();
 		BooksViewFragment frag = (BooksViewFragment)fm.findFragmentByTag(Constants.kTAG_FRAGMENT_BOOK_VIEW);
 		FragmentTransaction trans = null;			
